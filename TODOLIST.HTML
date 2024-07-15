@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    width:100%;
+    min-height: 100vh;
+    background: linear-gradient(to top,#cfd9df,#e2ebf0);
+    padding: 10px;
+
+}
+.todo-app{
+
+    width: 100%;
+    max-width: 700px;
+    background:#fff;
+    margin:150px auto 20px; 
+    padding: 40px 30px 70px;
+    border-radius: 50px;
+    box-shadow: 0 0 30px #afafaf;
+}
+h2{
+    display: flex;
+    align-items: center;
+    font-size: 80px;
+    margin-bottom:40px;
+    position: relative;
+    justify-content: space-between;
+}
+h2.img{
+    width: 10px;
+    height: 10px;
+    position:absolute;
+    right:0;
+    
+    
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: 3px groove #000;
+    outline-offset: 5px;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #5d5d5d;
+}
+input{
+    flex:1;
+    border:none;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+input::placeholder{
+    color:#1e008d
+}
+button{
+    border:none;
+    outline: none;
+    padding: 16px 30px;
+    background: #26068f;
+    color:#fff;
+    font-size:18px;
+    font-weight:600 ;
+    cursor: pointer;
+    border-radius: 30px;
+    margin:1px;
+}
+</style>
+</head>
+
+<body>
+    <div class="todo-app">
+        <h2>TO Do-List</h2>
+        <!-- < <img src="C:\Users\hp\OneDrive\Desktop\collegehtml\lis.png"></h2> -->
+        <div class="row">
+            <input type="text" id="taskInput" placeholder="Enter your text">
+            <button onclick="addTask()">Add Task</button><br>
+            <button onclick="window.print()">print</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+
+            if (taskInput.value.trim() !== '') {
+                const newTask = document.createElement('li');
+                newTask.textContent = taskInput.value;
+                taskList.appendChild(newTask);
+                taskInput.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
